@@ -1,0 +1,62 @@
+{
+    "SectorAcetabular": {
+        "Proximal": {
+            "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\Hip-Pal_v2\\Mediciones/Ecuador Proximal.png",
+            "izquierdo": {
+                "aasa": 121,
+                "pasa": 121,
+                "hasa": 242
+            },
+            "derecho": {
+                "aasa": 111,
+                "pasa": 112,
+                "hasa": 223
+            }
+        },
+        "Intermedial": {
+            "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\Hip-Pal_v2\\Mediciones/Intermedial Axial.png",
+            "izquierdo": {
+                "aasa": 63,
+                "pasa": 97,
+                "hasa": 160
+            },
+            "derecho": {
+                "aasa": 93,
+                "pasa": 106,
+                "hasa": 199
+            }
+        },
+        "Ecuatorial": {
+            "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\Hip-Pal_v2\\Mediciones/Ecuador Axial.png",
+            "izquierdo": {
+                "aasa": 51,
+                "pasa": 86,
+                "hasa": 137
+            },
+            "derecho": {
+                "aasa": 61,
+                "pasa": 98,
+                "hasa": 159
+            }
+        }
+    },
+    "CentroBordeLateral": {
+        "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\Hip-Pal_v2\\Mediciones\\CentroBordeLateral.png",
+        "izquierdo": {
+            "cbl": 30
+        },
+        "derecho": {
+            "cbl": 47
+        }
+    },
+    "CentroBordeAnterior": {
+        "izquierdo": {
+            "path": "output_path",
+            "cba": 65
+        },
+        "derecho": {
+            "path": "output_path",
+            "cba": 80
+        }
+    }
+}
