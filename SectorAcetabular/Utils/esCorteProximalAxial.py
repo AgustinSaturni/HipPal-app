@@ -2,8 +2,6 @@ import SectorAcetabular.Utils.esContornoCircular as esContornoCircular
 import CabezaFemur.cabezaFemurProximalAxial as cabezaFemurProximalAxial
 
 
-
-
 def detectar(femur_segmentado,femur_segmentado_gris):
 
     #Tratamiento especifico para cada femur

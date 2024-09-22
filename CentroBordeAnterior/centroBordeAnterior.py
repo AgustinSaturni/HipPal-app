@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import cv2
 from SectorAcetabular.Angulos import aasa
 
-def graficar(corte_ecuatorial_sagital,x,y,punto_inicio,punto_fin,x_final,y_final):
+def graficar(id, base_path,corte_ecuatorial_sagital,x,y,punto_inicio,punto_fin,x_final,y_final,lado):
 
     cv2.circle(corte_ecuatorial_sagital, (x, y), 1, (0, 255, 0), 2)  # Punto verde en (x_opuesto, y_opuesto)
     # Dibujar la línea en la imagen segmentada
@@ -13,16 +13,16 @@ def graficar(corte_ecuatorial_sagital,x,y,punto_inicio,punto_fin,x_final,y_final
 
     cv2.line(corte_ecuatorial_sagital, (x, y), (x_final, y_final), (0, 255, 0), 1)
 
-
-        # Mostrar la imagen sin título ni ejes
+    #Guardamos la imagen sin título ni ejes
     plt.figure(figsize=(10, 7))
     plt.imshow(corte_ecuatorial_sagital, cmap="gray", aspect='auto')
     plt.axis('off')  # Desactiva los ejes
-    plt.show()
-    return True
+    output_path = f"{base_path}/CentroBordeAnterior{lado}.png"
+    plt.savefig(output_path, bbox_inches='tight', pad_inches=0)
+    return output_path
 
 
-def detectar(cabezas_femur_axiales,tomografia_original,tomografia_segmentada):
+def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_segmentada):
     tomografia_segmentada_invertida = tomografia_segmentada
     # Definir la longitud de la recta (en este caso 100 píxeles)
     longitud_recta = 100
@@ -41,7 +41,7 @@ def detectar(cabezas_femur_axiales,tomografia_original,tomografia_segmentada):
     punto_inicio = (x_izq, y_izq)
     punto_fin = (x_izq, y_izq - longitud_recta)  # Restamos en y para que la línea sea hacia arriba
     angulo_CBA_izq=(-1*angulo_CBA_izq)-90
-    graficar(corte_ecuatorial_sagital_izq,x_izq,y_izq,punto_inicio,punto_fin,x_final_izq,y_final_izq)
+    output_path_izq=graficar(id, base_path,corte_ecuatorial_sagital_izq,x_izq,y_izq,punto_inicio,punto_fin,x_final_izq,y_final_izq,"Izquierdo")
 
 
     # Coordenadas del centro del círculo en la vista derecho
@@ -58,19 +58,28 @@ def detectar(cabezas_femur_axiales,tomografia_original,tomografia_segmentada):
     punto_inicio = (x_der, y_der)
     punto_fin = (x_der, y_der - longitud_recta)  # Restamos en y para que la línea sea hacia arriba
     angulo_CBA_der=(-1*angulo_CBA_der)-90
-    graficar(corte_ecuatorial_sagital_der,x_der,y_der,punto_inicio,punto_fin,x_final_der,y_final_der)
+    output_path_der=graficar(id, base_path,corte_ecuatorial_sagital_der,x_der,y_der,punto_inicio,punto_fin,x_final_der,y_final_der,"Derecho")
 
 
-    angulos_CBA={
-                "izquierdo":{
-                    "path":"output_path",
-                    "cba":angulo_CBA_izq
-                },
-                "derecho":{
-                    "path":"output_path",
-                    "cba":angulo_CBA_der
-                }
-        }
+    angulos_CBA_izq=[{
+                "path":output_path_izq,
+                "izquierdo":[{
+                    "name":"cba_izq",
+                    "value":angulo_CBA_izq
+                }]
+        }]
+    
 
 
-    return angulos_CBA
+    angulos_CBA_der=[{
+                "path":output_path_der,
+                "izquierdo":[{
+                    "name":"cba_der",
+                    "value":angulo_CBA_der
+                }]
+        }]
+    
+
+
+
+    return angulos_CBA_izq,angulos_CBA_der

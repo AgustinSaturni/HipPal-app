@@ -46,7 +46,7 @@ def graficar(coronal_slice, x, y, x_opuesto, y_opuesto, x_final, y_final, lado):
     return coronal_slice
 
 
-def detectar(cabezas_femur_axiales,tomografia_original,tomografia_segmentada):
+def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_segmentada):
     tomografia_segmentada_invertida = tomografia_segmentada[:, ::-1, :, :]
 
 
@@ -100,20 +100,29 @@ def detectar(cabezas_femur_axiales,tomografia_original,tomografia_segmentada):
     plt.figure(figsize=(10, 7))
     plt.imshow(composicion, cmap="gray", aspect='auto')
     plt.axis('off')  # Desactiva los ejes
-    output_path = r"C:\Users\Usuario\anaconda3\envs\monailabel-env\Hip-Pal_v2\Mediciones\CentroBordeLateral.png"
+    output_path = f"{base_path}/CentroBordeLateral.png"
     plt.savefig(output_path, bbox_inches='tight', pad_inches=0)
-    plt.show()
 
-    #Resto 90 porque el CentroBordeLateral se mide contra la perpendicular de la plomada.
-    angulo_CBL_izq= angulo_CBL_izq - 90
+    # Resto 90 porque el CentroBordeLateral se mide contra la perpendicular de la plomada.
+    angulo_CBL_izq = angulo_CBL_izq - 90
     angulo_CBL_der = (-1*angulo_CBL_der) - 90
-    angulos_CBL={
-                "path":output_path,
-                "izquierdo":{
-                    "cbl":angulo_CBL_izq
-                },
-                "derecho":{
-                    "cbl":angulo_CBL_der
+    angulos_CBL = [
+        {
+            "name": "",
+            "path": output_path,
+            "izquierdo": [
+                {
+                    "name": "cbl",
+                    "value": angulo_CBL_izq
                 }
+            ],
+            "derecho": [
+                {
+                    "name": "cbl",
+                    "value": angulo_CBL_der
+                }
+            ]
         }
+    ]
+
     return angulos_CBL

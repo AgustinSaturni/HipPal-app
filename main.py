@@ -1,3 +1,5 @@
+import argparse
+import uuid
 import nibabel as nib
 import os
 from CentroBordeAnterior import centroBordeAnterior
@@ -9,9 +11,18 @@ import json
 from TCtoNiigz import dcm_to_nii
 from Inferencia import segmentar
 from preprocesarSegmentacion import preprocesar
-
+import datetime
 
 def main():
+
+    id = str(uuid.uuid4())
+    parser = argparse.ArgumentParser(
+        description="Script para encontrar el directorio de tomografía a partir de una ruta y luego convertirlo a .nii.gz")
+    parser.add_argument("carpeta_salida",
+                        help="Ruta a la carpeta donde quedara el .nii.gz")
+    args = parser.parse_args()
+    print(args.carpeta_salida)
+    print(id)
     # 1. ruta tomo
     # 2. ruta usuario
 
@@ -57,19 +68,39 @@ def main():
         cabezas_femur_axiales = sectorAcetabular.detectar(tomografia_segmentada)
 
         # Detecta angulos sector Acetabular-------------------------------------------------
-        angulosSectorAcetabular = detectar.detectar(cabezas_femur_axiales, tomografia_original, tomografia_segmentada)
+        angulosSectorAcetabular = detectar.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original, tomografia_segmentada)
 
         # Detecta angulos Centro Borde Lateral-------------------------------------------------
-        angulosCentroBordeLateral = centroBordeLateral.detectar(cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
+        angulosCentroBordeLateral = centroBordeLateral.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
 
         # Detecta angulos Centro Borde Anterior-------------------------------------------------
-        angulosCentroBordeAnterior=centroBordeAnterior.detectar(cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
+        angulosCentroBordeAnteriorIzquierdo,angulosCentroBordeAnteriorDerecho=centroBordeAnterior.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
 
+        now = datetime.datetime.now()
+        timestamp_string = now.strftime("%Y-%m-%d %H:%M:%S")
 
-        angulos={
-            "SectorAcetabular":angulosSectorAcetabular,
-            "CentroBordeLateral":angulosCentroBordeLateral,
-            "CentroBordeAnterior":angulosCentroBordeAnterior
+        angulos = {
+            "id": id,
+            "name": f"Informe {id}",
+            "createdDate": timestamp_string,
+            "mediciones": [
+                {
+                    "name": "Sector Acetabular",
+                    "angulos": angulosSectorAcetabular,
+                },
+                {
+                    "name": "Centro Borde Lateral",
+                    "angulos": angulosCentroBordeLateral,
+                },
+                {
+                    "name": "Centro Borde Anterior Izquierdo",
+                    "angulos": angulosCentroBordeAnteriorIzquierdo,
+                },
+                {
+                    "name": "Centro Borde Anterior Derecho",
+                    "angulos": angulosCentroBordeAnteriorDerecho,
+                }
+            ]
         }
 
         # Guardo el JSON en el archivo------------------------------------------------------
