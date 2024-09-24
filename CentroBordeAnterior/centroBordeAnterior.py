@@ -23,7 +23,7 @@ def graficar(id, base_path,corte_ecuatorial_sagital,x,y,punto_inicio,punto_fin,x
 
 
 def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_segmentada):
-    tomografia_segmentada_invertida = tomografia_segmentada
+
     # Definir la longitud de la recta (en este caso 100 píxeles)
     longitud_recta = 100
 
@@ -33,7 +33,7 @@ def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_s
     x_izq,y_izq,z_izq=esCorteEcuatorialSagital.obtenerCentroide(tomografia_original,coordenadas_izq,numero_corte_izq)
     corte_ecuatorial_sagital_izq = tomografia_original[z_izq,:,:]
     corte_ecuatorial_sagital_izq= preprocesarSagital.procesarCorte(corte_ecuatorial_sagital_izq)
-    sagital_slice_izq_segmentado=tomografia_segmentada_invertida[z_izq,:,:,5]
+    sagital_slice_izq_segmentado=tomografia_segmentada[z_izq,:,:,5]
     sagital_slice_izq_segmentado= preprocesarSagitalSegmentado.procesarCorte(sagital_slice_izq_segmentado)
     x_final_izq, y_final_izq, angulo_CBA_izq=aasa.detectar(sagital_slice_izq_segmentado,x_izq,y_izq,x_izq,y_izq,1,"derecho")
     # Calcular las coordenadas de inicio y fin de la recta
@@ -50,7 +50,7 @@ def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_s
     x_der,y_der,z_der=esCorteEcuatorialSagital.obtenerCentroide(tomografia_original,coordenadas_der,numero_corte_der)
     corte_ecuatorial_sagital_der = tomografia_original[z_der,:,:]
     corte_ecuatorial_sagital_der= preprocesarSagital.procesarCorte(corte_ecuatorial_sagital_der)
-    sagital_slice_der_segmentado=tomografia_segmentada_invertida[z_der,:,:,4]
+    sagital_slice_der_segmentado=tomografia_segmentada[z_der,:,:,4]
     sagital_slice_der_segmentado= preprocesarSagitalSegmentado.procesarCorte(sagital_slice_der_segmentado)
     x_final_der, y_final_der, angulo_CBA_der=aasa.detectar(sagital_slice_der_segmentado,x_der,y_der,x_der,y_der,1,"derecho")
     # Calcular las coordenadas de inicio y fin de la recta

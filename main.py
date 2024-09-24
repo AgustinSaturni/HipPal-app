@@ -5,6 +5,7 @@ import os
 from CentroBordeAnterior import centroBordeAnterior
 from CentroBordeLateral import centroBordeLateral
 from Excepciones.Excepciones import ErrorDetectandoAngulos, ErrorIntermedialNotFound, ErrorProximalEcuatorialNotFound, ErrorCantidadEtiquetas
+from PendienteDelSacro import pendienteDelSacro
 import SectorAcetabular.sectorAcetabular as sectorAcetabular
 import SectorAcetabular.Utils.detectar as detectar
 import json
@@ -21,10 +22,7 @@ def main():
     parser.add_argument("carpeta_salida",
                         help="Ruta a la carpeta donde quedara el .nii.gz")
     args = parser.parse_args()
-    print(args.carpeta_salida)
-    print(id)
-    # 1. ruta tomo
-    # 2. ruta usuario
+
 
     print("\nDEBUG: comienza busqueda y conversión de tomografia.")
     #dcm_to_nii()
@@ -68,14 +66,18 @@ def main():
         cabezas_femur_axiales = sectorAcetabular.detectar(tomografia_segmentada)
 
         # Detecta angulos sector Acetabular-------------------------------------------------
-        angulosSectorAcetabular = detectar.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original, tomografia_segmentada)
+        #angulosSectorAcetabular = detectar.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original, tomografia_segmentada)
 
         # Detecta angulos Centro Borde Lateral-------------------------------------------------
-        angulosCentroBordeLateral = centroBordeLateral.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
+        #angulosCentroBordeLateral = centroBordeLateral.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
 
         # Detecta angulos Centro Borde Anterior-------------------------------------------------
-        angulosCentroBordeAnteriorIzquierdo,angulosCentroBordeAnteriorDerecho=centroBordeAnterior.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
+        #angulosCentroBordeAnteriorIzquierdo,angulosCentroBordeAnteriorDerecho=centroBordeAnterior.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
 
+
+        pendienteDelSacro.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
+
+        """"
         now = datetime.datetime.now()
         timestamp_string = now.strftime("%Y-%m-%d %H:%M:%S")
 
@@ -107,7 +109,7 @@ def main():
         with open(ruta_json_resultados, 'w') as archivo:
             #indent=4 para un formato legible
             json.dump(angulos, archivo, indent=4)
-
+        """
         print("Termino: 200")
         return 200
     except ErrorCantidadEtiquetas as e:

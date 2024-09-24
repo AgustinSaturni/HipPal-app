@@ -1,14 +1,14 @@
 {
-    "id": "8b13acf8-9672-4747-aa66-3e4179302470",
-    "name": "Informe 8b13acf8-9672-4747-aa66-3e4179302470",
-    "createdDate": "2024-09-22 12:24:13",
+    "id": "55c74a70-98cb-498d-a5bb-6c9079ed6f8e",
+    "name": "Informe 55c74a70-98cb-498d-a5bb-6c9079ed6f8e",
+    "createdDate": "2024-09-24 19:31:46",
     "mediciones": [
         {
             "name": "Sector Acetabular",
             "angulos": [
                 {
                     "name": "Proximal",
-                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/EcuadorProximal.png",
+                    "path": "/EcuadorProximal.png",
                     "izquierdo": [
                         {
                             "name": "aasa",
@@ -40,7 +40,7 @@
                 },
                 {
                     "name": "Intermedial",
-                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/IntermedialAxial.png",
+                    "path": "/IntermedialAxial.png",
                     "izquierdo": [
                         {
                             "name": "aasa",
@@ -72,7 +72,7 @@
                 },
                 {
                     "name": "Ecuatorial",
-                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/EcuadorAxial.png",
+                    "path": "/EcuadorAxial.png",
                     "izquierdo": [
                         {
                             "name": "aasa",
@@ -109,7 +109,7 @@
             "angulos": [
                 {
                     "name": "",
-                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/CentroBordeLateral.png",
+                    "path": "/CentroBordeLateral.png",
                     "izquierdo": [
                         {
                             "name": "cbl",
@@ -129,7 +129,7 @@
             "name": "Centro Borde Anterior Izquierdo",
             "angulos": [
                 {
-                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/CentroBordeAnteriorIzquierdo.png",
+                    "path": "/CentroBordeAnteriorIzquierdo.png",
                     "izquierdo": [
                         {
                             "name": "cba_izq",
@@ -143,7 +143,7 @@
             "name": "Centro Borde Anterior Derecho",
             "angulos": [
                 {
-                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/CentroBordeAnteriorDerecho.png",
+                    "path": "/CentroBordeAnteriorDerecho.png",
                     "izquierdo": [
                         {
                             "name": "cba_der",
