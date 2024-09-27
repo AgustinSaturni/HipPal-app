@@ -1,90 +1,58 @@
 {
-    "id": "55c74a70-98cb-498d-a5bb-6c9079ed6f8e",
-    "name": "Informe 55c74a70-98cb-498d-a5bb-6c9079ed6f8e",
-    "createdDate": "2024-09-24 19:31:46",
+    "id": "6975c9aa-e18b-4710-a6d0-cec5d758ab6d",
+    "name": "Informe 6975c9aa-e18b-4710-a6d0-cec5d758ab6d",
+    "createdDate": "2024-09-27 19:25:30",
     "mediciones": [
         {
             "name": "Sector Acetabular",
             "angulos": [
                 {
                     "name": "Proximal",
-                    "path": "/EcuadorProximal.png",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/EcuadorProximal.png",
                     "izquierdo": [
                         {
                             "name": "aasa",
-                            "value": 121
+                            "value": 114
                         },
                         {
                             "name": "pasa",
-                            "value": 121
+                            "value": 114
                         },
                         {
                             "name": "hasa",
-                            "value": 242
+                            "value": 228
                         }
                     ],
                     "derecho": [
                         {
                             "name": "aasa",
-                            "value": 111
+                            "value": 90
                         },
                         {
                             "name": "pasa",
-                            "value": 112
+                            "value": 105
                         },
                         {
                             "name": "hasa",
-                            "value": 223
+                            "value": 195
                         }
                     ]
                 },
                 {
                     "name": "Intermedial",
-                    "path": "/IntermedialAxial.png",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/IntermedialAxial.png",
                     "izquierdo": [
                         {
                             "name": "aasa",
-                            "value": 63
+                            "value": 65
                         },
                         {
                             "name": "pasa",
-                            "value": 97
+                            "value": 102
                         },
                         {
                             "name": "hasa",
-                            "value": 160
-                        }
-                    ],
-                    "derecho": [
-                        {
-                            "name": "aasa",
-                            "value": 93
-                        },
-                        {
-                            "name": "pasa",
-                            "value": 106
-                        },
-                        {
-                            "name": "hasa",
-                            "value": 199
-                        }
-                    ]
-                },
-                {
-                    "name": "Ecuatorial",
-                    "path": "/EcuadorAxial.png",
-                    "izquierdo": [
-                        {
-                            "name": "aasa",
-                            "value": 51
-                        },
-                        {
-                            "name": "pasa",
-                            "value": 86
-                        },
-                        {
-                            "name": "hasa",
-                            "value": 137
+                            "value": 167
                         }
                     ],
                     "derecho": [
@@ -94,11 +62,43 @@
                         },
                         {
                             "name": "pasa",
-                            "value": 98
+                            "value": 97
                         },
                         {
                             "name": "hasa",
-                            "value": 159
+                            "value": 158
+                        }
+                    ]
+                },
+                {
+                    "name": "Ecuatorial",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/EcuadorAxial.png",
+                    "izquierdo": [
+                        {
+                            "name": "aasa",
+                            "value": 55
+                        },
+                        {
+                            "name": "pasa",
+                            "value": 92
+                        },
+                        {
+                            "name": "hasa",
+                            "value": 147
+                        }
+                    ],
+                    "derecho": [
+                        {
+                            "name": "aasa",
+                            "value": 50
+                        },
+                        {
+                            "name": "pasa",
+                            "value": 89
+                        },
+                        {
+                            "name": "hasa",
+                            "value": 139
                         }
                     ]
                 }
@@ -109,17 +109,17 @@
             "angulos": [
                 {
                     "name": "",
-                    "path": "/CentroBordeLateral.png",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/CentroBordeLateral.png",
                     "izquierdo": [
                         {
                             "name": "cbl",
-                            "value": 30
+                            "value": 39
                         }
                     ],
                     "derecho": [
                         {
                             "name": "cbl",
-                            "value": 47
+                            "value": 27
                         }
                     ]
                 }
@@ -129,11 +129,12 @@
             "name": "Centro Borde Anterior Izquierdo",
             "angulos": [
                 {
-                    "path": "/CentroBordeAnteriorIzquierdo.png",
+                    "name": "Izquierdo",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/CentroBordeAnteriorIzquierdo.png",
                     "izquierdo": [
                         {
                             "name": "cba_izq",
-                            "value": 65
+                            "value": 64
                         }
                     ]
                 }
@@ -143,11 +144,57 @@
             "name": "Centro Borde Anterior Derecho",
             "angulos": [
                 {
-                    "path": "/CentroBordeAnteriorDerecho.png",
+                    "name": "Derecho",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/CentroBordeAnteriorDerecho.png",
                     "izquierdo": [
                         {
                             "name": "cba_der",
-                            "value": 80
+                            "value": 64
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Pendiente Sacra",
+            "angulos": [
+                {
+                    "name": "Sacral_Slope",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/SacralSlope.png",
+                    "izquierdo": [
+                        {
+                            "name": "sacralSlope",
+                            "value": 22
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Inclinacion Pelvica",
+            "angulos": [
+                {
+                    "name": "Pelvic_Tilt",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/PelvicTilt.png",
+                    "izquierdo": [
+                        {
+                            "name": "pelvicTilt",
+                            "value": 11
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Incidencia Pelvica",
+            "angulos": [
+                {
+                    "name": "Pelvic_Incidence",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/PelvicIncidence.png",
+                    "izquierdo": [
+                        {
+                            "name": "pelvicIncidence",
+                            "value": 33
                         }
                     ]
                 }

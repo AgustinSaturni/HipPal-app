@@ -59,9 +59,10 @@ def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_s
     punto_fin = (x_der, y_der - longitud_recta)  # Restamos en y para que la línea sea hacia arriba
     angulo_CBA_der=(-1*angulo_CBA_der)-90
     output_path_der=graficar(id, base_path,corte_ecuatorial_sagital_der,x_der,y_der,punto_inicio,punto_fin,x_final_der,y_final_der,"Derecho")
-
+    
 
     angulos_CBA_izq=[{
+                "name": "Izquierdo",
                 "path":output_path_izq,
                 "izquierdo":[{
                     "name":"cba_izq",
@@ -72,6 +73,7 @@ def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_s
 
 
     angulos_CBA_der=[{
+                "name": "Derecho",
                 "path":output_path_der,
                 "izquierdo":[{
                     "name":"cba_der",

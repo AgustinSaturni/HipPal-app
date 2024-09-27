@@ -44,7 +44,7 @@ def main():
         # CAMBIAR ESTAS RUTAS PARA TOMAR LA .NII NORMAL Y EL .NII SEGMENTADO
         # Deberia ir aca la Prediccion------------------------------------------------------------------------
         # Cargar la tomografía y la máscara
-        tomografia_original_path = os.path.join('Tomografia', 'Original', 'CT_7.nii.gz')
+        tomografia_original_path = os.path.join('Tomografia', 'Original', 'CT_8.nii.gz')
         #tomografia_original_path = os.path.join(
          #   'tomografias_nii', '4_Pelvis_Osea_20230418192551_4.nii.gz')
         tomografia_original = nib.load(tomografia_original_path).get_fdata()
@@ -52,7 +52,7 @@ def main():
         # Cargar prediccion----------------------------------------------------------------------------------
         #tomografia_segmentada_path = os.path.join(
          #   'tomografias_segmentadas', '4_Pelvis_Osea_20230418192551_4', '4_Pelvis_Osea_20230418192551_4_seg.nii.gz')
-        tomografia_segmentada_path = os.path.join('Tomografia', 'Prediccion', 'CT_7_seg.nii.gz')
+        tomografia_segmentada_path = os.path.join('Tomografia', 'Prediccion', 'CT_8_seg.nii.gz')
         tomografia_segmentada = nib.load(tomografia_segmentada_path).get_fdata()
 
         # Verificacion de etiquetas--------------------------------------------------------
@@ -66,18 +66,18 @@ def main():
         cabezas_femur_axiales = sectorAcetabular.detectar(tomografia_segmentada)
 
         # Detecta angulos sector Acetabular-------------------------------------------------
-        #angulosSectorAcetabular = detectar.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original, tomografia_segmentada)
+        angulosSectorAcetabular = detectar.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original, tomografia_segmentada)
 
         # Detecta angulos Centro Borde Lateral-------------------------------------------------
-        #angulosCentroBordeLateral = centroBordeLateral.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
+        angulosCentroBordeLateral = centroBordeLateral.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
 
         # Detecta angulos Centro Borde Anterior-------------------------------------------------
-        #angulosCentroBordeAnteriorIzquierdo,angulosCentroBordeAnteriorDerecho=centroBordeAnterior.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
+        angulosCentroBordeAnteriorIzquierdo,angulosCentroBordeAnteriorDerecho=centroBordeAnterior.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
 
 
-        pendienteDelSacro.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
+        anguloSacralSlope,anguloPelvicTilt,anguloPelvicIncidence=pendienteDelSacro.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
 
-        """"
+
         now = datetime.datetime.now()
         timestamp_string = now.strftime("%Y-%m-%d %H:%M:%S")
 
@@ -101,6 +101,18 @@ def main():
                 {
                     "name": "Centro Borde Anterior Derecho",
                     "angulos": angulosCentroBordeAnteriorDerecho,
+                },
+                {
+                    "name": "Pendiente Sacra",
+                    "angulos": anguloSacralSlope,
+                },
+                {
+                    "name": "Inclinacion Pelvica",
+                    "angulos": anguloPelvicTilt,
+                },
+                {
+                    "name": "Incidencia Pelvica",
+                    "angulos": anguloPelvicIncidence,
                 }
             ]
         }
@@ -109,7 +121,7 @@ def main():
         with open(ruta_json_resultados, 'w') as archivo:
             #indent=4 para un formato legible
             json.dump(angulos, archivo, indent=4)
-        """
+   
         print("Termino: 200")
         return 200
     except ErrorCantidadEtiquetas as e:
