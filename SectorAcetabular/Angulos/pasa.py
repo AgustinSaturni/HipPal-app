@@ -5,6 +5,7 @@ import math
 
 #Detecto PASA
 def detectar(imagen_HU, x1_centroide, y1_centroide, x2_centroide_opuesto, y2_centroide_opuesto, radio, lado='derecho'):
+    punto_blanco_encontrado = None  # Para almacenar el punto donde se encuentra el píxel blanco
     if lado == 'izquierdo':
         angulo_inicial = -180  # Ángulo inicial en grados para el lado derecho
         angulo_incremento = 1  # Decremento del ángulo para el lado derecho
@@ -42,6 +43,7 @@ def detectar(imagen_HU, x1_centroide, y1_centroide, x2_centroide_opuesto, y2_cen
             y = int(y1_centroide + t * (y_final - y1_centroide))
             if imagen2[y, x] != 0:
                 hay_pixel_blanco = True
+                punto_blanco_encontrado = (x, y)
                 break
         
         #print(f"Ángulo: {angulo_inicial}, Hay pixel blanco: {hay_pixel_blanco}")
@@ -52,4 +54,4 @@ def detectar(imagen_HU, x1_centroide, y1_centroide, x2_centroide_opuesto, y2_cen
         # Ajustar el ángulo
         angulo_inicial += angulo_incremento
     
-    return x_final, y_final, angulo_inicial
+    return x_final, y_final, angulo_inicial,punto_blanco_encontrado

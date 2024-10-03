@@ -11,6 +11,7 @@ import SectorAcetabular.Utils.detectar as detectar
 import json
 from TCtoNiigz import dcm_to_nii
 from Inferencia import segmentar
+from VersionAcetabular import versionAcetabular
 from preprocesarSegmentacion import preprocesar
 import datetime
 
@@ -39,12 +40,12 @@ def main():
     try:
         # CAMBIAR ESTA RUTA PARA GUARDAR EL JSON
         # ruta_json_resultados = r'C:\Users\Usuario\anaconda3\envs\monailabel-env\Hip-Pal_v2\angulos.json'
-        ruta_json_resultados = os.path.join('angulos', 'angulos.json')
+        ruta_json_resultados = os.path.join('Mediciones', 'angulos.json')
 
         # CAMBIAR ESTAS RUTAS PARA TOMAR LA .NII NORMAL Y EL .NII SEGMENTADO
         # Deberia ir aca la Prediccion------------------------------------------------------------------------
         # Cargar la tomografía y la máscara
-        tomografia_original_path = os.path.join('Tomografia', 'Original', 'CT_8.nii.gz')
+        tomografia_original_path = os.path.join('Tomografia', 'Original', 'CT_7.nii.gz')
         #tomografia_original_path = os.path.join(
          #   'tomografias_nii', '4_Pelvis_Osea_20230418192551_4.nii.gz')
         tomografia_original = nib.load(tomografia_original_path).get_fdata()
@@ -52,7 +53,7 @@ def main():
         # Cargar prediccion----------------------------------------------------------------------------------
         #tomografia_segmentada_path = os.path.join(
          #   'tomografias_segmentadas', '4_Pelvis_Osea_20230418192551_4', '4_Pelvis_Osea_20230418192551_4_seg.nii.gz')
-        tomografia_segmentada_path = os.path.join('Tomografia', 'Prediccion', 'CT_8_seg.nii.gz')
+        tomografia_segmentada_path = os.path.join('Tomografia', 'Prediccion', 'CT_7_seg.nii.gz')
         tomografia_segmentada = nib.load(tomografia_segmentada_path).get_fdata()
 
         # Verificacion de etiquetas--------------------------------------------------------
@@ -67,6 +68,9 @@ def main():
 
         # Detecta angulos sector Acetabular-------------------------------------------------
         angulosSectorAcetabular = detectar.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original, tomografia_segmentada)
+
+
+        angulosVersionAcetabularIzquierdo,angulosVersionAcetabularDerecho=versionAcetabular.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
 
         # Detecta angulos Centro Borde Lateral-------------------------------------------------
         angulosCentroBordeLateral = centroBordeLateral.detectar(id, args.carpeta_salida,cabezas_femur_axiales, tomografia_original,tomografia_segmentada)
@@ -113,7 +117,15 @@ def main():
                 {
                     "name": "Incidencia Pelvica",
                     "angulos": anguloPelvicIncidence,
-                }
+                },
+                {
+                    "name": "Version Acetabular Izquierdo",
+                    "angulos": angulosVersionAcetabularIzquierdo,
+                },
+                {
+                    "name": "Version Acetabular Derecho",
+                    "angulos": angulosVersionAcetabularDerecho,
+                },
             ]
         }
 

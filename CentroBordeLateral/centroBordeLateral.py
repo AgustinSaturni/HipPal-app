@@ -78,8 +78,8 @@ def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_s
     #y_der = y_der - 10
 
     
-    x_final_izq, y_final_izq, angulo_CBL_izq=aasa.detectar(coronal_slice_izq_segmentado,x_izq,y_izq,x_der,y_der,1,"izquierdo")
-    x_final_der, y_final_der, angulo_CBL_der=aasa.detectar(coronal_slice_der_segmentado,x_der,y_der,x_izq,y_izq,1,"derecho")
+    x_final_izq, y_final_izq, angulo_CBL_izq,_=aasa.detectar(coronal_slice_izq_segmentado,x_izq,y_izq,x_der,y_der,1,"izquierdo")
+    x_final_der, y_final_der, angulo_CBL_der,_=aasa.detectar(coronal_slice_der_segmentado,x_der,y_der,x_izq,y_izq,1,"derecho")
 
 
 

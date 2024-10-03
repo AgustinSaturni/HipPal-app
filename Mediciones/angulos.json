@@ -1,7 +1,7 @@
 {
-    "id": "6975c9aa-e18b-4710-a6d0-cec5d758ab6d",
-    "name": "Informe 6975c9aa-e18b-4710-a6d0-cec5d758ab6d",
-    "createdDate": "2024-09-27 19:25:30",
+    "id": "fab68c06-0cc8-4aa6-ab0e-123822ae07fa",
+    "name": "Informe fab68c06-0cc8-4aa6-ab0e-123822ae07fa",
+    "createdDate": "2024-10-03 20:08:39",
     "mediciones": [
         {
             "name": "Sector Acetabular",
@@ -12,29 +12,29 @@
                     "izquierdo": [
                         {
                             "name": "aasa",
-                            "value": 114
+                            "value": 121
                         },
                         {
                             "name": "pasa",
-                            "value": 114
+                            "value": 121
                         },
                         {
                             "name": "hasa",
-                            "value": 228
+                            "value": 242
                         }
                     ],
                     "derecho": [
                         {
                             "name": "aasa",
-                            "value": 90
+                            "value": 111
                         },
                         {
                             "name": "pasa",
-                            "value": 105
+                            "value": 112
                         },
                         {
                             "name": "hasa",
-                            "value": 195
+                            "value": 223
                         }
                     ]
                 },
@@ -44,21 +44,7 @@
                     "izquierdo": [
                         {
                             "name": "aasa",
-                            "value": 65
-                        },
-                        {
-                            "name": "pasa",
-                            "value": 102
-                        },
-                        {
-                            "name": "hasa",
-                            "value": 167
-                        }
-                    ],
-                    "derecho": [
-                        {
-                            "name": "aasa",
-                            "value": 61
+                            "value": 63
                         },
                         {
                             "name": "pasa",
@@ -66,7 +52,21 @@
                         },
                         {
                             "name": "hasa",
-                            "value": 158
+                            "value": 160
+                        }
+                    ],
+                    "derecho": [
+                        {
+                            "name": "aasa",
+                            "value": 93
+                        },
+                        {
+                            "name": "pasa",
+                            "value": 106
+                        },
+                        {
+                            "name": "hasa",
+                            "value": 199
                         }
                     ]
                 },
@@ -76,29 +76,29 @@
                     "izquierdo": [
                         {
                             "name": "aasa",
-                            "value": 55
+                            "value": 51
                         },
                         {
                             "name": "pasa",
-                            "value": 92
+                            "value": 86
                         },
                         {
                             "name": "hasa",
-                            "value": 147
+                            "value": 137
                         }
                     ],
                     "derecho": [
                         {
                             "name": "aasa",
-                            "value": 50
+                            "value": 61
                         },
                         {
                             "name": "pasa",
-                            "value": 89
+                            "value": 98
                         },
                         {
                             "name": "hasa",
-                            "value": 139
+                            "value": 159
                         }
                     ]
                 }
@@ -113,13 +113,13 @@
                     "izquierdo": [
                         {
                             "name": "cbl",
-                            "value": 39
+                            "value": 30
                         }
                     ],
                     "derecho": [
                         {
                             "name": "cbl",
-                            "value": 27
+                            "value": 47
                         }
                     ]
                 }
@@ -134,7 +134,7 @@
                     "izquierdo": [
                         {
                             "name": "cba_izq",
-                            "value": 64
+                            "value": 65
                         }
                     ]
                 }
@@ -149,7 +149,7 @@
                     "izquierdo": [
                         {
                             "name": "cba_der",
-                            "value": 64
+                            "value": 80
                         }
                     ]
                 }
@@ -164,7 +164,7 @@
                     "izquierdo": [
                         {
                             "name": "sacralSlope",
-                            "value": 22
+                            "value": 27
                         }
                     ]
                 }
@@ -179,7 +179,7 @@
                     "izquierdo": [
                         {
                             "name": "pelvicTilt",
-                            "value": 11
+                            "value": 12
                         }
                     ]
                 }
@@ -194,7 +194,37 @@
                     "izquierdo": [
                         {
                             "name": "pelvicIncidence",
-                            "value": 33
+                            "value": 38
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Version Acetabular Izquierdo",
+            "angulos": [
+                {
+                    "name": "Izquierdo",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/VersionAcetabularIzquierdo.png",
+                    "izquierdo": [
+                        {
+                            "name": "va_izq",
+                            "value": 72
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Version Acetabular Derecho",
+            "angulos": [
+                {
+                    "name": "Derecho",
+                    "path": "C:\\Users\\Usuario\\anaconda3\\envs\\monailabel-env\\HipPal-app\\Mediciones/VersionAcetabularDerecho.png",
+                    "izquierdo": [
+                        {
+                            "name": "va_der",
+                            "value": 72
                         }
                     ]
                 }

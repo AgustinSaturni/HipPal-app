@@ -35,7 +35,7 @@ def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_s
     corte_ecuatorial_sagital_izq= preprocesarSagital.procesarCorte(corte_ecuatorial_sagital_izq)
     sagital_slice_izq_segmentado=tomografia_segmentada[z_izq,:,:,5]
     sagital_slice_izq_segmentado= preprocesarSagitalSegmentado.procesarCorte(sagital_slice_izq_segmentado)
-    x_final_izq, y_final_izq, angulo_CBA_izq=aasa.detectar(sagital_slice_izq_segmentado,x_izq,y_izq,x_izq,y_izq,1,"derecho")
+    x_final_izq, y_final_izq, angulo_CBA_izq,_=aasa.detectar(sagital_slice_izq_segmentado,x_izq,y_izq,x_izq,y_izq,1,"derecho")
     # Calcular las coordenadas de inicio y fin de la recta
     # La línea será perpendicular al plano del piso (vertical), por lo que modificamos solo las coordenadas `y`
     punto_inicio = (x_izq, y_izq)
@@ -52,7 +52,7 @@ def detectar(id,base_path,cabezas_femur_axiales,tomografia_original,tomografia_s
     corte_ecuatorial_sagital_der= preprocesarSagital.procesarCorte(corte_ecuatorial_sagital_der)
     sagital_slice_der_segmentado=tomografia_segmentada[z_der,:,:,4]
     sagital_slice_der_segmentado= preprocesarSagitalSegmentado.procesarCorte(sagital_slice_der_segmentado)
-    x_final_der, y_final_der, angulo_CBA_der=aasa.detectar(sagital_slice_der_segmentado,x_der,y_der,x_der,y_der,1,"derecho")
+    x_final_der, y_final_der, angulo_CBA_der,_=aasa.detectar(sagital_slice_der_segmentado,x_der,y_der,x_der,y_der,1,"derecho")
     # Calcular las coordenadas de inicio y fin de la recta
     # La línea será perpendicular al plano del piso (vertical), por lo que modificamos solo las coordenadas `y`
     punto_inicio = (x_der, y_der)
